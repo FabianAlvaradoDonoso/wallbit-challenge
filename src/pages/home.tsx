@@ -74,14 +74,14 @@ const HomePage = () => {
                   />
                   <div className="flex flex-col space-y-2">
                     <h3 className="inline-block w-96 truncate">{product.title}</h3>
-                    <Badge className="bg-secondary text-primary hover:bg-secondary hover:text-primary w-fit space-x-2">
+                    <Badge className="w-fit space-x-2 bg-secondary text-primary hover:bg-secondary hover:text-primary">
                       <LabelIcon width={10} className="mr-1" /> {product.category}
                     </Badge>
                     <Separator className="my-3" />
                     <div className="flex flex-row items-center justify-between">
                       <div className="flex flex-row items-center space-x-2">
                         <Button size="sm">Eliminar</Button>
-                        <div className="border-secondary flex items-center space-x-2 rounded-lg border">
+                        <div className="flex items-center space-x-2 rounded-lg border border-secondary">
                           <Button size="sm" variant="ghost" className="rounded-none border-r">
                             -
                           </Button>

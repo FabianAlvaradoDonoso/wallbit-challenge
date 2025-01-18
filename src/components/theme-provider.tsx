@@ -1,6 +1,6 @@
 import type { IThemeContext } from '@/types'
 
-import { useState, useContext, createContext } from 'react'
+import { useState, useEffect, useContext, createContext } from 'react'
 
 export const ThemeContext = createContext<IThemeContext>({
   theme: 'dark',
@@ -16,8 +16,23 @@ export const ThemeProvider = ({ children }: IElement) => {
 
   const handleThemeMode = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
-    document.body.classList.toggle('dark')
+    localStorage.setItem('theme', theme === 'dark' ? 'light' : 'dark')
   }
+
+  useEffect(() => {
+    const localTheme = localStorage.getItem('theme')
+    if (localTheme) {
+      setTheme(localTheme as 'dark' | 'light')
+    }
+  }, [])
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.remove('dark')
+    }
+  }, [theme])
 
   return (
     <ThemeContext.Provider

@@ -9,12 +9,12 @@ export function ModeToggle() {
   return (
     <button
       onClick={() => handleThemeMode()}
-      className="border-primary rounded-lg border p-2 text-center text-sm font-medium"
+      className="rounded-lg border border-primary p-2 text-center text-sm font-medium"
     >
       {theme === 'dark' ? (
-        <SunIcon width={20} fill="white" />
+        <SunIcon width={20} fill="currentColor" />
       ) : (
-        <MoonIcon width={20} fill="black" />
+        <MoonIcon width={20} fill="currentColor" />
       )}
     </button>
   )
