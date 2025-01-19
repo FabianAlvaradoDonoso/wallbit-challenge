@@ -18,7 +18,7 @@ export const Product = ({ product }: IProductElement) => {
       <div className="flex flex-row items-center space-x-5">
         <img src={product.image} alt={product.title} className="h-12 w-12 flex-shrink-0" />
         <div className="flex flex-col space-y-2">
-          <h3 className="inline-block w-96 truncate">{product.title}</h3>
+          <h3 className="inline-block w-64 truncate md:w-[370px] lg:w-[470px]">{product.title}</h3>
           <Badge className="w-fit space-x-2 bg-secondary text-primary hover:bg-secondary hover:text-primary">
             <LabelIcon width={12} className="mr-1" />
             {product.category}
