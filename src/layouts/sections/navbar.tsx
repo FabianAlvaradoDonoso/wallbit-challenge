@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { ModeToggle } from '@/components/mode-toggle'
+import GithubIcon from '@/components/icons/githubIcon'
 
 export const Navbar = () => (
   <nav className="border-gray-200 bg-transparent">
@@ -9,7 +10,15 @@ export const Navbar = () => (
           Wallbit Challenge
         </span>
       </Link>
-      <div className="flex items-center md:block md:w-auto" id="navbar-default">
+      <div className="flex flex-row items-center space-x-3" id="navbar-default">
+        <a
+          href="https://github.com/FabianAlvaradoDonoso/wallbit-challenge"
+          target="_blank"
+          rel="noreferrer"
+          className="text-gray-800 dark:text-gray-300"
+        >
+          <GithubIcon width={30} />
+        </a>
         <ModeToggle />
       </div>
     </div>
