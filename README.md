@@ -1,50 +1,62 @@
-# React + TypeScript + Vite
+# Wallbit Junior Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Para este desafío, nuestro cliente nos encargó hacer un carrito de compras para programadores. Tiene un formulario con 2 campos: ID del producto y cantidad. Los programadores habitualmente no necesitan saber ni ver que productos comprar, sino que saben por conexiones astrales cual es el ID del producto que quieren y así los agregan a su carrito.
 
-Currently, two official plugins are available:
+Cada vez que se agrega un producto, vamos a obtener el producto desde la API y lo vamos a mostrar en una tabla, junto a la cantidad que el usuario eligió.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Solo lo mostramos visualmente por si hay alguien que no sea programador mirando la pantalla.
 
-## Expanding the ESLint configuration
+La aplicación se vería así:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Sin productos](./assets/without-products.png)
 
-- Configure the top-level `parserOptions` property like this:
+> Inicialmente no hay productos en el carrito
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+![Con productos](./assets/with-products.png)
+
+> Con productos en el carrito
+
+## Requisitos
+
+La API que nos dió nuestro cliente es: [Fake Store API](https://fakestoreapi.com/). El cliente nos dijo que su stack de frontend es React, que prefiere el challenge hecho con eso, pero está abierto a cualquier stack que quieras usar.
+
+- [ ] Podemos agregar productos al carrito.
+- [ ] Manejar errores que nos devuelva la API.
+- [ ] Mostrar una lista con los productos agregados incluyendo `title`, `price` e `image` del producto y la `cantidad` que el usuario agregó.
+
+## Extras
+
+- [ ] El carrito se persiste al recargar la página.
+- [ ] Mostrar el total de productos agregados.
+- [ ] Mostrar el costo total del carrito.
+- [ ] Mostrar la fecha de creación del carrito.
+
+## 🚀 Ejecutar el proyecto
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/FabianAlvaradoDonoso/wallbit-challenge.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Instalar las dependencias:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+# Con pnpm (recomendado):
+pnpm install
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# Con npm:
+npm install
 ```
+
+3. Ejecutar el proyecto:
+
+```bash
+# Con pnpm (recomendado):
+pnpm dev
+
+# Con npm:
+npm run dev
+```
+
+Abrir [http://localhost:5173](http://localhost:5173) para ver la aplicación.

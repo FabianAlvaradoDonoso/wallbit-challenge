@@ -71,7 +71,7 @@ export const CartProvider = ({ children }: IElement) => {
     const data = localStorage.getItem('cart')
     const dataJson = JSON.parse(data as string)
 
-    if (dataJson.length > 0) {
+    if (dataJson && dataJson.length > 0) {
       console.log('data', dataJson)
       setProducts(dataJson)
     }
