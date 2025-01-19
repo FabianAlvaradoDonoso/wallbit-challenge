@@ -15,7 +15,7 @@ export const Cart = () => {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-grow flex-col justify-between overflow-y-auto p-4">
-        <section className="flex flex-col space-y-3 overflow-y-auto border-gray-200 dark:border-gray-800">
+        <section className="flex flex-col space-y-3 overflow-y-auto border-gray-200 px-1 dark:border-gray-800">
           {products.map((product) => (
             <Product key={product.id} product={product} />
           ))}
