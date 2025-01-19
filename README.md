@@ -8,11 +8,11 @@ Cada vez que se agrega un producto, vamos a obtener el producto desde la API y l
 
 La aplicación se vería así:
 
-![Sin productos](./assets/without-products.png)
+![Sin productos](./public/assets/without-products.png)
 
 > Inicialmente no hay productos en el carrito
 
-![Con productos](./assets/with-products.png)
+![Con productos](./public/assets/with-products.png)
 
 > Con productos en el carrito
 
