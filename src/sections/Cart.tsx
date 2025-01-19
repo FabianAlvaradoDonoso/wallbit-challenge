@@ -15,10 +15,16 @@ export const Cart = () => {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-grow flex-col justify-between overflow-y-auto p-4">
-        <section className="flex flex-col space-y-3 overflow-y-auto border-gray-200 px-1 dark:border-gray-800">
+        <section className="flex flex-col space-y-2 overflow-y-auto border-gray-200 px-1 dark:border-gray-800">
           {products.map((product) => (
             <Product key={product.id} product={product} />
           ))}
+
+          {products.length === 0 && (
+            <div className="flex h-[50vh] flex-col items-center justify-center">
+              <p className="text-gray-500">No products added</p>
+            </div>
+          )}
         </section>
         <div>
           <Separator className="my-3" />

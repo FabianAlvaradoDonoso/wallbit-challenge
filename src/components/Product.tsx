@@ -14,7 +14,7 @@ export const Product = ({ product }: IProductElement) => {
   return (
     <article
       key={product.id}
-      className="flex space-x-2 rounded-md border border-gray-200 px-3 py-2 dark:border-gray-800"
+      className="flex space-x-2 rounded-md border border-gray-200 px-3 py-1.5 delay-0 duration-500 animate-in fade-in dark:border-gray-800"
     >
       <div className="flex flex-row items-center space-x-5">
         <img src={product.image} alt={product.title} className="h-12 w-12 flex-shrink-0" />
@@ -30,7 +30,7 @@ export const Product = ({ product }: IProductElement) => {
               <Button
                 size="sm"
                 variant="ghost"
-                className="text-primary/60 hover:bg-transparent"
+                className="text-primary/60 hover:bg-transparent hover:text-red-600 dark:hover:text-red-600"
                 onClick={() => {
                   deleteProduct(product.id)
                 }}
@@ -65,7 +65,12 @@ export const Product = ({ product }: IProductElement) => {
                 </Button>
               </div>
             </div>
-            <p>${(product.price * product.quantity).toFixed(2)}</p>
+            <div className="flex flex-row items-center space-x-2">
+              <span className="text-[11px]">
+                {product.quantity} x ${product.price.toFixed(2)}
+              </span>
+              <p>${(product.price * product.quantity).toFixed(2)}</p>
+            </div>
           </div>
         </div>
       </div>

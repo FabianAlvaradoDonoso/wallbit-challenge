@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from 'react'
+import { useState, useEffect, useContext, createContext } from 'react'
 
 interface IElement {
   children: JSX.Element | JSX.Element[]
@@ -12,33 +12,6 @@ export interface IProduct {
   image: string
   quantity: number
 }
-
-const initialProducts: IProduct[] = [
-  {
-    id: 1,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-    price: 109.94,
-    category: "men's clothing",
-    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-    quantity: 2,
-  },
-  {
-    id: 13,
-    title: 'Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin',
-    price: 599,
-    category: 'electronics',
-    image: 'https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg',
-    quantity: 1,
-  },
-  {
-    id: 8,
-    title: 'Pierced Owl Rose Gold Plated Stainless Steel Double',
-    price: 10.99,
-    image: 'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg',
-    category: 'jewelery',
-    quantity: 3,
-  },
-]
 
 interface ICartContext {
   products: IProduct[]
@@ -65,7 +38,7 @@ export const CartContext = createContext<ICartContext>({
 })
 
 export const CartProvider = ({ children }: IElement) => {
-  const [products, setProducts] = useState<IProduct[]>(initialProducts)
+  const [products, setProducts] = useState<IProduct[]>([])
   const [startedDate, setStartedDate] = useState(new Date())
 
   const startDate = () => {
@@ -93,6 +66,20 @@ export const CartProvider = ({ children }: IElement) => {
   const getTotalProducts = products.reduce((acc, product) => acc + product.quantity, 0)
 
   const getTotalPrice = products.reduce((acc, product) => acc + product.price * product.quantity, 0)
+
+  useEffect(() => {
+    const data = localStorage.getItem('cart')
+    const dataJson = JSON.parse(data as string)
+
+    if (dataJson.length > 0) {
+      console.log('data', dataJson)
+      setProducts(dataJson)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(products))
+  }, [products])
 
   const state = {
     products,
